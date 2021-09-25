@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products portal</title>
+    <link rel="stylesheet" href="/CSS/main-container.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="main-page">
+      <div class="content">
+        <div id="header-content">
+          <div class="logo">
+            <img src="https://img.icons8.com/office/30/000000/product.png" />
+            <span>Products portal</span>
+          </div>
+          <div class="loging">
+            <div class="cart"></div>
+            <div class="signing" id="open-signin">Sign in</div>
+            <div class="signup" id="open-signup">Sign up</div>
+          </div>
+        </div>
+        <div id="search-section">
+          <div class="name-pp">Products portal</div>
+          <div class="form">
+            <form action="" class="form-control">
+              <input
+                type="search"
+                name=""
+                class="input-search"
+                placeholder="Search name"
+              />
+              <!-- <i class="material-icons">search </i> -->
+              <button type="submit" class="search-btn">Search</button>
+              <button type="submit" class="filter-btn">filter</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="product-section"></div>
+      <div id="cart-details"></div>
+
+      <!-- Sign up Model -->
+      <div class="modal-container" id="modal">
+        <div class="modal">
+          <div class="header">
+            <span>Sign Up</span>
+            <span class="close">close</span>
+          </div>
+          <form action="post" class="modal-form-control">
+            <input type="text" class="form-input" placeholder="Enter name" />
+            <input type="email" class="form-input" placeholder="email" />
+            <input type="password" class="form-input" placeholder="password" />
+            <input type="submit" class="sub-btn" />
+          </form>
+        </div>
+      </div>
+
+      <!-- Sign in Modal -->
+      <div class="modal-container2" id="modal2">
+        <div class="modal2">
+          <div class="header">
+            <span>Sign In</span>
+            <span class="close2">close</span>
+          </div>
+          <form action="post" class="modal-form-control">
+            <input type="email" class="form-input" placeholder="email" />
+            <input type="password" class="form-input" placeholder="password" />
+            <input type="submit" class="sub-btn" />
+          </form>
+        </div>
+      </div>
+
+      <div id="footer-section">FOOTER</div>
+    </div>
+
+    <script src="/JAVASCRIPT/index.js"></script>
+  </body>
+</html>

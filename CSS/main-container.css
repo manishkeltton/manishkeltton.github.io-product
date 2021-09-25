@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease;
+  font-size: 20px;
+}
+
+#main-page {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.content {
+  color:violet;
+  width: 100%;
+  height: 70vh;
+  background-image: url("https://c1.wallpaperflare.com/preview/428/205/261/women-s-dress-fashion-furniture.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+
+#header-content {
+  width: 100%;
+  /* border-bottom: 1px solid black; */
+  margin-bottom: 7%;
+  padding: 1%;
+  font-size: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.loging {
+  font-size: 1.4rem;
+  padding: 1% 0 1% 1%;
+  width: 30vw;
+  display: flex;
+  flex-flow: row ;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.signing{
+  padding: 0 0 0 8%;
+}
+#search-section {
+  font-size: 2rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  align-items: center;
+}
+
+.input-search {
+  padding: 1% 1.5%;
+  letter-spacing: 1px;
+  position: relative;
+  height: 6vh;
+  width: 40vw;
+}
+
+/* .material-icons{
+
+  align-self: flex-start;
+  position: absolute;
+} */
+
+.search-btn {
+  height: 5.5vh;
+  flex: 1;
+  width: 15vw;
+}
+
+.filter-btn {
+  height: 5.5vh;
+  flex: 1;
+  width: 15vw;
+}
+
+.product-list {
+  display: block;
+}
+
+#product-section {
+  width: auto;
+  border: solid 2px black;
+  margin: 3% 1%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container {
+  width: 20%;
+  height: 40vh;
+  border: solid 1px black;
+  margin: 1%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container img {
+  height: 20vh;
+  width: 20vw;
+  border-bottom: solid 1px;
+  padding: 1%;
+}
+
+.name-rate {
+  background-color: cadetblue;
+  width: 100%;
+  margin: 2% 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.rate-add {
+  background-color: rgb(95, 116, 160);
+  width: 100%;
+  margin: 2% 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+#footer-section {
+  border: solid 2px black;
+  width: auto;
+  height: 50vh;
+  margin: 2% 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  height: 20px;
+  font-size: 1.5vw;
+}
+
+/* Modal Control */
+.show-modal {
+  display: block;
+}
+
+.modal-container {
+  display: none;
+  /* background-color: rgb(160, 160, 170); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-container2 {
+  display: none;
+  /* background-color: rgb(160, 160, 170); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal2 {
+  background-color: aqua;
+  position: absolute;
+  border: 1px solid rgb(31, 2, 9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  max-width: 100%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+.modal {
+  background-color: aqua;
+  position: absolute;
+  border: 1px solid rgb(31, 2, 9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  max-width: 100%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+.header {
+  display: flex;
+  margin: 2%;
+  justify-content: space-between;
+}
+
+.modal-form-control {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 10% 15%;
+}
+
+.form-input {
+  height: 30px;
+  margin: 3%;
+  padding: 1% 2%;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+}
+
+.sub-btn {
+  height: 30px;
+  width: 12vw;
+  padding: auto;
+  margin: 3% 3% 3% 35%;
+  letter-spacing: 1px;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Cart styles */
+#cart-details {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5%;
+  display: none;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.left {
+  width: 40%;
+  background-color: rgb(238, 228, 228);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.address,
+.payment {
+  height: 8vh;
+  width: 25vw;
+  outline: none;
+  border: 0;
+  font-size: 20px;
+  letter-spacing: 2px;
+  background-color: rgba(177, 10, 10, 0.651);
+  color: white;
+  border-radius: 2%;
+}
+
+.address:hover,
+.payment:hover {
+  background-color: rgb(121, 160, 95);
+  outline: 2px solid yellow;
+  cursor: pointer;
+}
+
+.summary {
+  background-color: rgba(255, 0, 234, 0.26);
+  width: 100%;
+  max-height: 100%;
+  height: 100%;
+  border-left: 1px solid salmon;
+  padding: 1% 2%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  flex: 1 30px;
+}
+
+.sum {
+  color: rgb(248, 44, 8);
+  letter-spacing: 2px;
+  margin-bottom: 2%;
+}
+
+.add {
+  color: rgb(128, 133, 60);
+  letter-spacing: 2px;
+}
+
+.list-Items {
+  background-color: rgb(212, 219, 172);
+  list-style-type: none;
+  padding: 0;
+  max-width: 100%;
+  max-height: 100%;
+  width: 50vw;
+  height: auto;
+  color: rgb(95, 90, 90);
+  letter-spacing: 1px;
+}
+
+.item {
+  margin: 2% 0 2% 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 1% 2.5%;
+  border-bottom: 1px solid rgb(246, 250, 14);
+}
+
+.item:hover {
+  outline: 2px solid yellow;
+  background-color: rgba(94, 233, 147, 0.11);
+  cursor: pointer;
+}
+
+.item div {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.name,
+.input-btn {
+  margin: 1% 0 2% 0;
+}
+
+.order-btn {
+  height: 8vh;
+  width: 25vw;
+  outline: none;
+  border: 0;
+  font-size: 20px;
+  letter-spacing: 2px;
+  background-color: rgba(177, 10, 10, 0.651);
+  color: white;
+  border-radius: 2%;
+  align-self: center;
+}
+
+.order-btn:hover {
+  background-color: rgb(121, 160, 95);
+  outline: 2px solid yellow;
+  cursor: pointer;
+}
