@@ -32,14 +32,15 @@ const showData = (getValues) => {
 
     var span2 = document.createElement("span");
     span2.id = "price";
-    span2.innerText = `${getValue.price}`;
+    span2.innerText = `$${getValue.price}`;
 
     var div2 = document.createElement("div");
     div2.setAttribute("class", "rate-add");
 
     var span3 = document.createElement("span");
     span3.id = "rating";
-    span3.innerText = `${getValue.rating.rate}`;
+    span3.innerHTML = `${getValue.rating.rate}`;
+    span3.innerHTML +="☆";
 
     var btnAdd = document.createElement("input");
     btnAdd.setAttribute("type", "button");
