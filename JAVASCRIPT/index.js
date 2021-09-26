@@ -248,13 +248,14 @@ searchbtn.addEventListener("click", (e) => {
 });
 
 var filterbtn = document.querySelector(".filter-btn");
+filterbtn.setAttribute("title", "Filter product > 4 star");
 filterbtn.addEventListener("click", (e) => {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((json) => {
       console.log("Json =>", json);
       let filterData = json.filter(
-        (data) => data.price > 50 || data.rating.rate > 4
+        (data) => data.rating.rate > 4
       );
       const content = document.querySelectorAll(".container");
       content.forEach((removeData) => removeData.remove());
