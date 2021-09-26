@@ -228,6 +228,27 @@ window.addEventListener("click", (e) => {
   e.target == modal2 ? (modal2.style.display = "none") : false;
 });
 
+// Modal sign up work
+var getSignUp = document.querySelector(".sub-btn");
+var signUpInVal = document.querySelectorAll(".form-input");
+
+
+console.log("getSignUp =>", getSignUp);
+var storeData = {};
+getSignUp.addEventListener("click", (e) => {
+  storeData.name = signUpInVal[0].value;
+  storeData.email = signUpInVal[1].value;
+  storeData.pass = signUpInVal[2].value;
+  localStorage.setItem("signUpData",JSON.stringify(storeData));
+  for (var i =0; i<signUpInVal.length;i++){
+    console.log(signUpInVal[i].value);
+  }
+  console.log("storeData =>", storeData);
+  e.preventDefault();
+})
+
+console.log("getItem =>", localStorage.getItem("signUpData"));
+
 var searchbtn = document.querySelector(".search-btn");
 var searchValue = document.querySelector(".input-search");
 
@@ -265,3 +286,4 @@ filterbtn.addEventListener("click", (e) => {
     .catch((err) => console.log("Error =>", err));
   e.preventDefault();
 });
+

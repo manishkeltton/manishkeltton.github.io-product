@@ -80,7 +80,8 @@ body {
 }
 
 .input-search:hover {
-  outline: 1px solid violet;
+  outline: 2px solid violet;
+  border: none;
 }
 
 .form-control div img {
@@ -258,12 +259,16 @@ body {
 }
 
 .form-input {
+  outline:none;
+  border:none;
+  border-bottom: 2px solid violet;
   height: 30px;
   margin: 3%;
   padding: 1% 2%;
   justify-content: center;
   align-items: center;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
 }
 
 .sub-btn {
@@ -271,7 +276,15 @@ body {
   width: 12vw;
   padding: auto;
   margin: 3% 3% 3% 35%;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  border: none;
+}
+
+.sub-btn:hover{
+  color: white;
+  background-color:violet;
+  cursor:pointer;
 }
 
 @keyframes modalopen {
