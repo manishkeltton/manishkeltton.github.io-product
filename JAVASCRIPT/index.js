@@ -40,7 +40,7 @@ const showData = (getValues) => {
     var span3 = document.createElement("span");
     span3.id = "rating";
     span3.innerHTML = `${getValue.rating.rate}`;
-    span3.innerHTML +="☆";
+    span3.innerHTML += "☆";
 
     var btnAdd = document.createElement("input");
     btnAdd.setAttribute("type", "button");
@@ -88,8 +88,8 @@ cart.addEventListener("click", (e) => {
   cartDetails.style.display = "flex";
   product.style.display = "none";
   searchSection.style.display = "none";
-  footerSection.style.display = "none"; 
-  
+  footerSection.style.display = "none";
+
   var div = document.createElement("div");
   div.setAttribute("class", "left");
 
@@ -205,6 +205,11 @@ var modal2 = document.querySelector(".modal-container2");
 var close = document.querySelector(".close");
 var close2 = document.querySelector(".close2");
 signUp.addEventListener("click", () => {
+  var nameError = document.querySelectorAll(".modal-form-control div");
+  for (var i = 0; i < nameError.length; i++) {
+    nameError[i].style.display = "none";
+  }
+
   modal.style.display = "block";
 });
 
@@ -232,20 +237,47 @@ window.addEventListener("click", (e) => {
 var getSignUp = document.querySelector(".sub-btn");
 var signUpInVal = document.querySelectorAll(".form-input");
 
-
 console.log("getSignUp =>", getSignUp);
 var storeData = {};
 getSignUp.addEventListener("click", (e) => {
   storeData.name = signUpInVal[0].value;
   storeData.email = signUpInVal[1].value;
   storeData.pass = signUpInVal[2].value;
-  localStorage.setItem("signUpData",JSON.stringify(storeData));
-  for (var i =0; i<signUpInVal.length;i++){
+  localStorage.setItem("signUpData", JSON.stringify(storeData));
+  for (var i = 0; i < signUpInVal.length; i++) {
     console.log(signUpInVal[i].value);
+  }
+
+  let nameError = document.querySelector(".nameError");
+  let emailError = document.querySelector(".emailError");
+  let passwordError = document.querySelector(".passwordError");
+
+  if (signUpInVal[0].value == "") {
+    nameError.style.display = "block";
+    nameError.innerText = "Fill the name";
+    console.log("nameError =>", nameError);
+  } else {
+    nameError.style.display = "none";
+  }
+
+  if (signUpInVal[1].value == "") {
+    emailError.style.display = "block";
+    emailError.innerText = "Fill email address";
+    console.log("emailError =>", emailError);
+  } else {
+    emailError.style.display = "none";
+  }
+
+  if (signUpInVal[2].value == "") {
+    passwordError.style.display = "block";
+    passwordError.innerText = "Fill password";
+    console.log("passwordError =>", passwordError);
+  } else {
+    passwordError.style.display = "none";
   }
   console.log("storeData =>", storeData);
   e.preventDefault();
-})
+});
 
 console.log("getItem =>", localStorage.getItem("signUpData"));
 
@@ -275,9 +307,7 @@ filterbtn.addEventListener("click", (e) => {
     .then((res) => res.json())
     .then((json) => {
       console.log("Json =>", json);
-      let filterData = json.filter(
-        (data) => data.rating.rate > 4
-      );
+      let filterData = json.filter((data) => data.rating.rate > 4);
       const content = document.querySelectorAll(".container");
       content.forEach((removeData) => removeData.remove());
       showData(filterData);
@@ -286,4 +316,3 @@ filterbtn.addEventListener("click", (e) => {
     .catch((err) => console.log("Error =>", err));
   e.preventDefault();
 });
-
