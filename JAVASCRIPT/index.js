@@ -209,7 +209,6 @@ signUp.addEventListener("click", () => {
   for (var i = 0; i < nameError.length; i++) {
     nameError[i].style.display = "none";
   }
-
   modal.style.display = "block";
 });
 
@@ -240,50 +239,69 @@ var signUpInVal = document.querySelectorAll(".form-input");
 console.log("getSignUp =>", getSignUp);
 var storeData = {};
 getSignUp.addEventListener("click", (e) => {
-  localStorage.clear();
-  let nameError = document.querySelector(".nameError");
-  let emailError = document.querySelector(".emailError");
-  let passwordError = document.querySelector(".passwordError");
-  let isEmpaty = 1;
-  if (signUpInVal[0].value == "") {
-    nameError.style.display = "block";
-    nameError.innerText = "Fill the name";
-    isEmpaty = 0;
-  } else {
-    nameError.style.display = "none";
+  try {
+    localStorage.clear();
+    let nameError = document.querySelector(".nameError");
+    let emailError = document.querySelector(".emailError");
+    let passwordError = document.querySelector(".passwordError");
+    let isEmpaty = 1;
+    if (signUpInVal[0].value == "") {
+      nameError.style.display = "block";
+      nameError.innerText = "Fill the name";
+      isEmpaty = 0;
+    } else {
+      nameError.style.display = "none";
+    }
+
+    if (signUpInVal[1].value == "") {
+      emailError.style.display = "block";
+      emailError.innerText = "Fill email address";
+      isEmpaty = 0;
+    } else {
+      emailError.style.display = "none";
+    }
+
+    if (signUpInVal[2].value == "") {
+      passwordError.style.display = "block";
+      passwordError.innerText = "Fill password";
+      isEmpaty = 0;
+    } else {
+      passwordError.style.display = "none";
+    }
+
+    storeData.name = signUpInVal[0].value;
+    storeData.email = signUpInVal[1].value;
+    storeData.pass = signUpInVal[2].value;
+
+    console.log(
+      " EMpty => ",
+      isEmpaty
+        ? localStorage.setItem("signUpData", JSON.stringify(storeData))
+        : null
+    );
+    let succes = document.querySelector(".succes");
+    const signUpSuccess = () => {
+      modal.style.display = "none";
+      var popUp = document.createElement("div");
+      popUp.innerText = "Sign Up successFully";
+      succes.style.display = "block";
+      succes.appendChild(popUp);
+      console.log("Successfuly =>", popUp);
+    };
+    isEmpaty ? signUpSuccess() : inputMissing();
+
+    let closeSuc = () => {
+      succes.style.display = "none";
+    };
+    setTimeout(closeSuc, 1000);
+
+    console.log("getItem =>", localStorage.getItem("signUpData"));
+
+    console.log("storeData =>", storeData);
+    e.preventDefault();
+  } catch (error) {
+    console.log("Error =>", error);
   }
-
-  if (signUpInVal[1].value == "") {
-    emailError.style.display = "block";
-    emailError.innerText = "Fill email address";
-    isEmpaty = 0;
-  } else {
-    emailError.style.display = "none";
-  }
-
-  if (signUpInVal[2].value == "") {
-    passwordError.style.display = "block";
-    passwordError.innerText = "Fill password";
-    isEmpaty = 0;
-  } else {
-    passwordError.style.display = "none";
-  }
-
-  storeData.name = signUpInVal[0].value;
-  storeData.email = signUpInVal[1].value;
-  storeData.pass = signUpInVal[2].value;
-
-  console.log(
-    " EMpty => ",
-    isEmpaty
-      ? localStorage.setItem("signUpData", JSON.stringify(storeData))
-      : null
-  );
-
-  console.log("getItem =>", localStorage.getItem("signUpData"));
-
-  console.log("storeData =>", storeData);
-  e.preventDefault();
 });
 
 var searchbtn = document.querySelector(".search-btn");
