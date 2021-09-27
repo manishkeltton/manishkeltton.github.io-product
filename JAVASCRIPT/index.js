@@ -240,22 +240,15 @@ var signUpInVal = document.querySelectorAll(".form-input");
 console.log("getSignUp =>", getSignUp);
 var storeData = {};
 getSignUp.addEventListener("click", (e) => {
-  storeData.name = signUpInVal[0].value;
-  storeData.email = signUpInVal[1].value;
-  storeData.pass = signUpInVal[2].value;
-  localStorage.setItem("signUpData", JSON.stringify(storeData));
-  for (var i = 0; i < signUpInVal.length; i++) {
-    console.log(signUpInVal[i].value);
-  }
-
+  localStorage.clear();
   let nameError = document.querySelector(".nameError");
   let emailError = document.querySelector(".emailError");
   let passwordError = document.querySelector(".passwordError");
-
+  let isEmpaty = 1;
   if (signUpInVal[0].value == "") {
     nameError.style.display = "block";
     nameError.innerText = "Fill the name";
-    console.log("nameError =>", nameError);
+    isEmpaty = 0;
   } else {
     nameError.style.display = "none";
   }
@@ -263,7 +256,7 @@ getSignUp.addEventListener("click", (e) => {
   if (signUpInVal[1].value == "") {
     emailError.style.display = "block";
     emailError.innerText = "Fill email address";
-    console.log("emailError =>", emailError);
+    isEmpaty = 0;
   } else {
     emailError.style.display = "none";
   }
@@ -271,15 +264,27 @@ getSignUp.addEventListener("click", (e) => {
   if (signUpInVal[2].value == "") {
     passwordError.style.display = "block";
     passwordError.innerText = "Fill password";
-    console.log("passwordError =>", passwordError);
+    isEmpaty = 0;
   } else {
     passwordError.style.display = "none";
   }
+
+  storeData.name = signUpInVal[0].value;
+  storeData.email = signUpInVal[1].value;
+  storeData.pass = signUpInVal[2].value;
+
+  console.log(
+    " EMpty => ",
+    isEmpaty
+      ? localStorage.setItem("signUpData", JSON.stringify(storeData))
+      : null
+  );
+
+  console.log("getItem =>", localStorage.getItem("signUpData"));
+
   console.log("storeData =>", storeData);
   e.preventDefault();
 });
-
-console.log("getItem =>", localStorage.getItem("signUpData"));
 
 var searchbtn = document.querySelector(".search-btn");
 var searchValue = document.querySelector(".input-search");
