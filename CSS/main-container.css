@@ -258,7 +258,7 @@ body {
   margin: 10% 15%;
 }
 
-.form-input {
+.form-input,.form-input2  {
   outline:none;
   border:none;
   border-bottom: 2px solid violet;
@@ -271,7 +271,7 @@ body {
   font-weight: bold;
 }
 
-.sub-btn {
+.sub-btn1,.sub-btn2 {
   height: 30px;
   width: 12vw;
   padding: auto;
@@ -281,7 +281,7 @@ body {
   border: none;
 }
 
-.sub-btn:hover{
+.sub-btn1:hover,.sub-btn2:hover{
   color: white;
   background-color:violet;
   cursor:pointer;

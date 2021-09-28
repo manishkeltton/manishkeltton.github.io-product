@@ -233,11 +233,11 @@ window.addEventListener("click", (e) => {
 });
 
 // Modal sign up work
-var getSignUp = document.querySelector(".sub-btn");
+var getSignUp = document.querySelector(".sub-btn1");
 var signUpInVal = document.querySelectorAll(".form-input");
 
 console.log("getSignUp =>", getSignUp);
-var storeData = {};
+var storeData2 = {};
 getSignUp.addEventListener("click", (e) => {
   try {
     localStorage.clear();
@@ -269,14 +269,14 @@ getSignUp.addEventListener("click", (e) => {
       passwordError.style.display = "none";
     }
 
-    storeData.name = signUpInVal[0].value;
-    storeData.email = signUpInVal[1].value;
-    storeData.pass = signUpInVal[2].value;
+    storeData2.name = signUpInVal[0].value;
+    storeData2.email = signUpInVal[1].value;
+    storeData2.pass = signUpInVal[2].value;
 
     console.log(
       " EMpty => ",
       isEmpaty
-        ? localStorage.setItem("signUpData", JSON.stringify(storeData))
+        ? localStorage.setItem("signUpData", JSON.stringify(storeData2))
         : null
     );
     let succes = document.querySelector(".succes");
@@ -288,16 +288,103 @@ getSignUp.addEventListener("click", (e) => {
       succes.appendChild(popUp);
       console.log("Successfuly =>", popUp);
     };
+
+    const inputMissing = () => {
+      var popUp = document.createElement("div");
+      popUp.innerText = "Some input missing";
+      succes.style.display = "block";
+      succes.appendChild(popUp);
+      console.log("Successfuly =>", popUp);
+    };
+
     isEmpaty ? signUpSuccess() : inputMissing();
 
     let closeSuc = () => {
+      signUpInVal[0].value = "";
+      signUpInVal[1].value = "";
+      signUpInVal[2].value = "";
       succes.style.display = "none";
     };
     setTimeout(closeSuc, 1000);
 
     console.log("getItem =>", localStorage.getItem("signUpData"));
 
-    console.log("storeData =>", storeData);
+    console.log("storeData2 =>", storeData2);
+    e.preventDefault();
+  } catch (error) {
+    console.log("Error =>", error);
+  }
+});
+
+// Modal sign in work
+var getSignIn = document.querySelector(".sub-btn2");
+var signInVal = document.querySelectorAll(".form-input2");
+var storeData22 = [];
+getSignIn.addEventListener("click", (e) => {
+  try {
+    // localStorage.clear();
+    let emailError = document.querySelector(".emailError2");
+    let passwordError = document.querySelector(".passwordError2");
+    let isEmpaty = 1;
+
+    if (signInVal[0].value == "") {
+      emailError.style.display = "block";
+      emailError.innerText = "Fill email address";
+      isEmpaty = 0;
+    } else {
+      emailError.style.display = "none";
+    }
+
+    if (signInVal[1].value == "") {
+      passwordError.style.display = "block";
+      passwordError.innerText = "Fill password";
+      isEmpaty = 0;
+    } else {
+      passwordError.style.display = "none";
+    }
+    storeData2.email = signInVal[0].value;
+    storeData2.pass = signInVal[1].value;
+
+    let check = isEmpaty ?JSON.parse(localStorage.getItem("signUpData")) : null;
+
+    let succes = document.querySelector(".succes");
+    const signUpSuccess = () => {
+      modal.style.display = "none";
+      var popUp = document.createElement("div");
+      popUp.innerText = "Sign In successFully";
+      succes.style.display = "block";
+      succes.appendChild(popUp);
+      console.log("Successfuly =>", popUp);
+    };
+
+    const inputMissing = () => {
+      var popUp = document.createElement("div");
+      popUp.innerText = "Some input missing";
+      succes.style.display = "block";
+      succes.appendChild(popUp);
+      console.log("Successfuly =>", popUp);
+    };
+
+    const credentials = () => {
+      var popUp = document.createElement("div");
+      popUp.innerText = "Check Credentials";
+      succes.style.display = "block";
+      succes.appendChild(popUp);
+      console.log("Successfuly =>", popUp);
+    };
+
+    isEmpaty ?(check.email == storeData2.email && check.pass == storeData2.pass) ? signUpSuccess() : credentials(): inputMissing();
+
+    let closeSuc = () => {
+      signInVal[0].value = "";
+      signInVal[1].value = "";
+      succes.style.display = "none";
+    };
+    setTimeout(closeSuc, 1000);
+
+    console.log("getItem =>", localStorage.getItem("signUpData"));
+
+    console.log("storeData2 =>", storeData2);
     e.preventDefault();
   } catch (error) {
     console.log("Error =>", error);
