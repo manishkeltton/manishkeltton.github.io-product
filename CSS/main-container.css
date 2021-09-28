@@ -48,8 +48,10 @@ body {
   cursor: pointer;
 }
 
-.signing:hover {
-  padding: 0 0 0 8%;
+.signing:hover,.signup:hover, .cart:hover{
+  padding: 1.5%;
+  border: 1px solid violet;
+  outline: 1px solid violet;
 } 
 
 #search-section {
