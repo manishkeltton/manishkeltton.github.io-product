@@ -348,7 +348,7 @@ getSignIn.addEventListener("click", (e) => {
     let check = isEmpaty ?JSON.parse(localStorage.getItem("signUpData")) : null;
 
     let succes = document.querySelector(".succes");
-    const signUpSuccess = () => {
+    const signInSuccess = () => {
       modal.style.display = "none";
       var popUp = document.createElement("div");
       popUp.innerText = "Sign In successFully";
@@ -373,7 +373,7 @@ getSignIn.addEventListener("click", (e) => {
       console.log("Successfuly =>", popUp);
     };
 
-    isEmpaty ?(check.email == storeData2.email && check.pass == storeData2.pass) ? signUpSuccess() : credentials(): inputMissing();
+    isEmpaty ?(check.email == storeData2.email && check.pass == storeData2.pass) ? signInSuccess() : credentials(): inputMissing();
 
     let closeSuc = () => {
       signInVal[0].value = "";

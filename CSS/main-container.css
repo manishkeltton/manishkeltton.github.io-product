@@ -48,9 +48,10 @@ body {
   cursor: pointer;
 }
 
-.signing {
+.signing:hover {
   padding: 0 0 0 8%;
-}
+} 
+
 #search-section {
   font-size: 2rem;
   display: flex;
